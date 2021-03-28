@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+// Request for the DNS name of the node.
+message NodeNameRequest {}
+
+// Response from server with node name
+message NodeNameResponse {
+  enum Name {
+    UNDEFINED = 0;
+    SHORTCAKE = 1;
+    EDEE = 2;
+    OSHACK = 3;
+    POMPOM = 4;
+  }
+  Name name = 1;
+}
+
+service InfoService {
+  rpc name_info(NodeNameRequest) returns (NodeNameResponse);
+}
